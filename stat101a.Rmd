@@ -4,11 +4,20 @@ author: "DG"
 output: html_document
 ---
 
+The code below shows how to visualize different  probability density functions in R.
+It also introduces the following R concepts,  tools and tips:
+
+- Much better graphs can be using ggplot2 library - just include  `library(ggplot2)` and replace basefunction `plot` with `qplot`!
+- Don't know what function `bla-bla()` is doing ?  - Run `?bla-bla` to read the help about it.
+- It's good practice is to set the seed for random number generation - to make your results reproducible by others
+- You can code and _document_ your code in R (as comments with `#`) or in Rmd (as regular test). 
+It's often easier to start with R, and then move your codes to Rmd
+
 ```{r}
 
-# File name: stat101_a.R
+# File name: prob101_a.R
 # Visualizing various probability density functions
-# See also: stat101_a.Rmd (the same code inside an automatically generated report)
+# See also: prob101_a.Rmd (the same code inside an automatically generated report)
 
 
 # The Normal Distribution
@@ -46,10 +55,5 @@ qplot(xx, dlnorm(xx, log=T), geom = c("point", "line"), main = "Log Normal: PDF 
 qplot(xx, plnorm(xx), geom = c("point", "line"), main = "Log Normal cumulative PDF (i.e. integral under curve from -inf to x) ")
 qplot(xx, plnorm(xx, log.p=T), geom = c("point", "line"), main = "Log Normal: cumulative PDF (i.e. integral under curve from -inf to x) ")
 
-
-# Some fun distributions
-
-qbirthday(prob = 0.5, classes = 365, coincident = 2)
-pbirthday(n <- 36, classes = 365, coincident = 2)
 
 ```
