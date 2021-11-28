@@ -1,2 +1,5 @@
 # r101
-Collection of custom-built codes to introduce R to students
+
+## Codes and tricks from a computer scientist to help non computer scientists to master the R programming language
+
+https://gorodnichy.github.io/r101/
