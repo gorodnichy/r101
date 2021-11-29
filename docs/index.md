@@ -7,9 +7,10 @@ The list of tutorials developed so far: [Output](https://gorodnichy.github.io/r1
 - The codes are here: https://github.com/gorodnichy/r101   
 - The outputs produced using those codes are here (TBA): https://gorodnichy.github.io/r101/
 
-#### Learning Statistics using R (or... Learning R using Statistics).
+#### Learning Statistics using R (or ... Learning R using Statistics).
+
 Part 1:  Visualizing various probability density functions     
-<stat101a.html> --- stat101a.Rmd & stat101a.R
+stat101a.html --- stat101a.Rmd & stat101a.R
 
 Shows:
 - The most minimalistic code!
@@ -19,7 +20,8 @@ Shows:
 - Use of pipelines with `%>%` operator
 
 
-#### Physics Labs in R -  Learning Physics using R (or... Learning R using Physics).
+#### Physics Labs in R -  Learning Physics using R (or ... Learning R using Physics).
+
 Computing a system’s characteristic from a set of observations
 physics_with_R-01.html (also at https://rpubs.com/ivim/r101-w-physics01),  physics_with_R-01.pdf --- physics_with_R-01.Rmd
 
@@ -27,7 +29,7 @@ Shows:
 - Pedagogical vs. historical approach to teaching R
 - Key R concepts
 - Your first Good coding practices rules
-- Three (3) most needed libraries
+- Three (3) most needed libraries: data.table, ggplot and "%>%"
 - Interactive Menus, sub-pages,Code Window popup in Rmarkdown
 
 
