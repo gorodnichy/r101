@@ -1,6 +1,6 @@
 # r101
 
-## Tutorials from a _computer scientist_ to help _non computer scientists_ to master the R programming language
+## Tutorials from a _computer scientist_ to help _non computer science students_ to master the R programming language
 
 The list of tutorials developed so far: [Output](https://gorodnichy.github.io/r101) - [Source](https://github.com/gorodnichy/r101)
 
@@ -9,7 +9,8 @@ The list of tutorials developed so far: [Output](https://gorodnichy.github.io/r1
 
 #### Learning Statistics using R (or ... Learning R using Statistics).
 
-Part 1:  Visualizing various probability density functions     
+Part 1:  Visualizing various probability density functions   
+
 stat101a.html --- stat101a.Rmd & stat101a.R
 
 Shows:
@@ -22,7 +23,8 @@ Shows:
 
 #### Physics Labs in R -  Learning Physics using R (or ... Learning R using Physics).
 
-Computing a system’s characteristic from a set of observations
+Part 1: Computing a system’s characteristic from a set of observations
+
 physics_with_R-01.html (also at https://rpubs.com/ivim/r101-w-physics01),  physics_with_R-01.pdf --- physics_with_R-01.Rmd
 
 Shows:
@@ -30,12 +32,12 @@ Shows:
 - Key R concepts
 - Your first Good coding practices rules
 - Three (3) most needed libraries: data.table, ggplot and "%>%"
-- Interactive Menus, sub-pages,Code Window popup in Rmarkdown
+- Simply Rmarkdown tricks: Interactive Menus, Tabs Code Window popups
 
 
 
 
 
-Have questions or ideas? - Don't hesitate to contact me at dmitry @ gorodnichy.ca !
+#### Have questions or ideas? - Don't hesitate to contact me at dmitry @ gorodnichy.ca !
 
 Check also recommendations on how to start learning R at https://open-canada.github.io/UseR/resources.html
