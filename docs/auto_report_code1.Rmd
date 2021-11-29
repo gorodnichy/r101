@@ -1,0 +1,133 @@
+---
+title: "Diamond price analysis [EXAMPLE OF AUTOMATICALLY GENERATED REPORT]"
+subtitle: Tutorial on good style R coding and code automation
+# author:  "Audit team"
+# date: "October 6, 2021"
+# date: "`r format(Sys.time(), '%d %B %Y')`"
+output:
+  html_document: default
+  word_document: default
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+# library(tidyverse)
+# library(stringr)
+library(magrittr)
+library(data.table)
+library(ggplot2)
+```
+
+## Abstract
+
+This report presents Analysis of the effect of Depth on Price of diamonds.
+It is generated automatically from 'ggplot2::diamonds' dataset.    
+It is available in  html, Word and PDF formats, all compiles from the same R Markdown script shown below
+
+
+## Methodology
+
+### Method 1: Putting code inside R Markdown  
+
+Code chunk below is generate to write an .csv file that contains the subset of data (defined by 'SAMPLE_SIZE', 'RANDOM_SEED' parameters)` and produce the graph that visuzalizes this subset.
+
+NB: 
+This code  is written in such way that it can be re-used inside a 'for' loop or within an interactive application, where 'SAMPLE_SIZE', 'RANDOM_SEED' parameters can be changed automatically (in loop) or by user (in app).
+
+Note the following:
+
+- naming of constants (ALL_CAPITALS) and variables (hungarianNotation)  
+- the use of data.table: setDT, use of pipes [][]
+- how the way the code is structured (spacing, use of =, <-,  %>%, .[] )
+- all dataset fields are always used in quotes ("") so that they can be references a variable when needed (eg. when selected by user in interactive app)
+
+```{r}
+# Below is the code that is pasted from `auto_report_code1.R`
+
+dt <- ggplot2::diamonds %>% setDT %>% .[order(get("price"))] %>% setcolorder("price"); dt
+
+# Constants - which we want to be able modify (either automatically - in loop, or manualy - using interactive App) ----
+SAMPLE_SIZE = 150
+RANDOM_SEED = 99; set.seed(RANDOM_SEED)
+CLARITY = (dt$ clarity %>% unique %>% sort)[1] # "I1"
+
+# Subset data ----
+
+# dt1 <- dt[clarity==CLARITY] [sample(.N, SAMPLE_SIZE)] [order(price)];  
+# If data field (eg 'clarity") can be modified by user, it should be codes as shown below
+dt1 <- dt[get("clarity")==CLARITY] [sample(.N, SAMPLE_SIZE)] [order(get("price"))]; 
+dt1
+
+strTitle <- sprintf("Effect of Depth on Price for Clarity '%s' (size=%02g, seed=%02g).csv", CLARITY, SAMPLE_SIZE, RANDOM_SEED)
+
+# Change this to 'T' to start writinh on your disk  
+if(F) {
+ fwrite(dt1, strTitle)
+}
+
+# Two ways of plotting variables ----
+
+g <- ggplot(dt1) + theme_bw() +
+  geom_point(aes_string(x="depth", y="price",col="color", size="carat", shape="cut")) +
+  labs(title = strTitle)
+g
+
+# another way to call variables inside ggplot functions - using get() function!
+g1 <- ggplot(dt1) + theme_bw() +
+  geom_line(aes(x=get("depth"), y=get("price"),col=get("color"))) +
+  geom_point(aes(x=get("depth"), y=get("price"),col=get("color"), size=get("carat"))) + 
+  facet_grid(get("cut") ~ .) +
+  labs(title = strTitle)
+g1
+
+```
+
+
+### Method 2: Putting code in a separate .R file
+
+Instead of putting the R code in R Markdown, it can be put in separate file and called from there using `source("auto_report_code1.R")`
+
+
+```{r cars, eval=FALSE, message=FALSE, warning=FALSE, include=FALSE}
+source("auto_report_code1.R")
+```
+
+
+## Converting static tables and graphs into interactive ones!
+
+
+For html report, 
+the above tables   and graphs can be converted into interactive ones - with a single line of code!
+
+
+### Interactive table
+
+Interactive table is the advanced data science tool that allows one to browse and extract data from  complex and large datasets  efficiently using interactivity. You can sort, filter table by values.
+
+```{r}
+
+dt1 %>% DT::datatable( 
+  rownames=F,  filter="top",
+  extensions = 'Buttons',
+  options = list(dom = 'Blfrtip', buttons = c('copy', 'csv', 'excel', 'pdf', 'print')
+  )
+)
+
+
+```
+
+
+### Interactive plot
+
+Interactive plot is the advanced data science tool that allows one to analyze and visualize  complex and large datasets very efficiently using interactivity.
+
+- Hover over a line or a point in plot to see the details about it.
+- Zoom on any section by drugging mouse of the region of interestin the  plot. Double-click on the plot restores original size.
+- Click / double-click on factor description at right to exlude or include factor-related  data in the plot;  Single-click removes/adds selected factor, Double-click  removes/adds *all* but the selected data.
+- Click on addional icons in top right corner for additional actions (eg. save images, help).
+
+```{r}
+plotly::ggplotly(g)
+
+plotly::ggplotly(g1)
+```
