@@ -4,12 +4,12 @@
 
 The list of tutorials developed so far: [Output](https://gorodnichy.github.io/r101) - [Source](https://github.com/gorodnichy/r101)
 
-- The codes are here: https://github.com/gorodnichy/r101   
-- The outputs produced using those codes are here (TBA): https://gorodnichy.github.io/r101/
+- The codes are here: <https://github.com/gorodnichy/r101>  
+- The outputs produced using those codes are here (TBA): [https://gorodnichy.github.io/r101/]
 
 #### Learning Statistics using R (or... Learning R using Statistics).
 Part 1:  Visualizing various probability density functions     
-<stat101a.html> --- stat101a.Rmd & stat101a.R
+[stat101a.html](https://gorodnichy.github.io/r101/stat101a.html) --- [stat101a.Rmd](https://github.com/gorodnichy/r101/docs) & [stat101a.R](https://github.com/gorodnichy/r101/docs/)
 
 Shows:
 - The most minimalistic code!
@@ -21,7 +21,7 @@ Shows:
 
 #### Physics Labs in R -  Learning Physics using R (or... Learning R using Physics).
 Computing a system’s characteristic from a set of observations
-physics_with_R-01.html (also at https://rpubs.com/ivim/r101-w-physics01),  physics_with_R-01.pdf --- physics_with_R-01.Rmd
+physics_with_R-01.html (also at <https://rpubs.com/ivim/r101-w-physics01>),  physics_with_R-01.pdf --- physics_with_R-01.Rmd
 
 Shows:
 - Pedagogical vs. historical approach to teaching R
